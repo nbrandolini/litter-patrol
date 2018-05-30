@@ -14,7 +14,7 @@ class App extends Component {
     console.log(this.state.bins);
   }
 
-  startGame() {             
+  startGame() {
     setInterval(() => {
       this.setState( {
         bins: this.getBinsState()
@@ -33,12 +33,12 @@ class App extends Component {
 
   onTrashClicked = () => {
     // Fill this in!
-  }
+  };
 
   render() {
     const bins = this.state.bins.map((bin, index) => {
       return (
-        <Trash key={`trash-${index}`} />
+        <Trash key={`trash-${index}`} isVisible={ bin.isTrashVisible}/>
       );
     });
 

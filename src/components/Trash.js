@@ -4,9 +4,14 @@ import TrashIcon from '../trash.svg';
 
 class Trash extends Component {
   render() {
+    let image = '';
+    if (this.props.isVisible) {
+      image = <img src={ TrashIcon } alt="Trash" className="trash"></img>
+    }
+
     return (
       <div className="bin">
-        <img src={ TrashIcon } alt="Trash" className="trash"></img>
+       {image}
       </div>
     );
   }
