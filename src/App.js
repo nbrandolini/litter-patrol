@@ -14,7 +14,7 @@ class App extends Component {
     console.log(this.state.bins);
   }
 
-  startGame() {
+  startGame() {             
     setInterval(() => {
       this.setState( {
         bins: this.getBinsState()
