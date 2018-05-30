@@ -7,7 +7,7 @@ class App extends Component {
     super();
     this.state = {
       bins: this.getBinsState(),
-      points: 0
+      points: 0,
     };
 
     this.startGame();
@@ -32,26 +32,28 @@ class App extends Component {
   }
 
   onTrashClicked = () => {
-    // Fill this in!
+    this.setState({ points: this.state.points + 1 });
   };
 
   render() {
     const bins = this.state.bins.map((bin, index) => {
       return (
-        <Trash key={`trash-${index}`} isVisible={ bin.isTrashVisible}/>
+        <Trash key={`trash-${index}`} isVisible={ bin.isTrashVisible}
+        addPoints={this.onTrashClicked}/>
+
       );
     });
 
     return (
       <div className="App">
-        <section className="overall-data">
-          <h1>Litter Patrol</h1>
-          <h2>Points: { this.state.points }</h2>
-        </section>
+      <section className="overall-data">
+      <h1>Litter Patrol</h1>
+      <h2>Points: { this.state.points }</h2>
+      </section>
 
-        <section className="bins">
-          { bins }
-        </section>
+      <section className="bins">
+      { bins }
+      </section>
       </div>
     );
   }
